@@ -260,13 +260,22 @@ const Page = () => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    // Filter params logic
+useEffect(() => {
 
-    const updatedParams = `?a=${JSON.stringify(assigneefilter)}&p=${JSON.stringify(priorityfilter)}&b=${JSON.stringify([date1, date2])}&s=${JSON.stringify(statusfilter)}`;
 
-    router.replace(updatedParams);
-  }, [assigneefilter, priorityfilter, date1, date2, statusfilter]);
+
+  const params = new URLSearchParams(window.location.search);
+
+  const newparams = new URLSearchParams();
+  newparams.set("a", JSON.stringify(assigneefilter));
+  newparams.set("p", JSON.stringify(priorityfilter));
+  newparams.set("b", JSON.stringify([date1, date2]));
+  newparams.set("s", JSON.stringify(statusfilter));
+
+  if (params.toString() !== newparams.toString()) {
+    router.replace(`?${newparams.toString()}`);
+  }
+}, [assigneefilter, priorityfilter, date1, date2, statusfilter]);
 
   return (
     <div
