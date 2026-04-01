@@ -1,9 +1,11 @@
 "use client";
-export const dynamic = "force-dynamic";
+
 import { useEffect, useState } from "react";
 import { Activity } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import FourCoulmns from "./component/coulmn";
+import UseSearchParams from "./component/useSearchparams";
+import { Suspense } from "react";
 
 // (code) is to find by search inter-dependent or related code lines
 
@@ -230,40 +232,6 @@ const Page = () => {
   const [assigneefilter, setassigneefilter] = useState<string[]>([]);
   const [statusfilter, setstatusfilter] = useState<string[]>([]);
 
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    //sharabler filter url logic
-
-    const assignF = searchParams.get("a");
-    const priorityF = searchParams.get("p");
-    const statusF = searchParams.get("s");
-    const strandend: (string | null)[] =
-      JSON.parse(searchParams.get("b") ?? "null") ?? [];
-
-    function setter() {
-      if (strandend[1]) {
-        const str = new Date(strandend[0] ?? "");
-        const end = new Date(strandend[1] ?? "");
-
-        setdate1(str.toLocaleDateString("en-CA"));
-        setdate2(end.toLocaleDateString("en-CA"));
-
-        const betweendates = getbetweentwodates(str, end).map((i) =>
-          i.toLocaleDateString("en-CA"),
-        );
-
-        setbetweenDates(betweendates ?? []);
-      }
-
-      setassigneefilter(JSON.parse(assignF!) ?? []);
-      setpriorityfilter(JSON.parse(priorityF!) ?? []);
-      setstatusfilter(JSON.parse(statusF!) ?? []);
-    }
-
-    setter();
-  }, []);
-
   // Filtering Logic
 
   const router = useRouter();
@@ -290,9 +258,12 @@ const Page = () => {
       });
     }
     Filters();
-    router.push(
-      `?a=${JSON.stringify(assigneefilter)}&p=${JSON.stringify(priorityfilter)}&b=${JSON.stringify([date1, date2])}&s=${JSON.stringify(statusfilter)}`,
-    );
+
+    const updatedParams = `?a=${JSON.stringify(assigneefilter)}&p=${JSON.stringify(priorityfilter)}&b=${JSON.stringify([date1, date2])}&s=${JSON.stringify(statusfilter)}`;
+
+    if (updatedParams !== location.search) {
+      router.replace(updatedParams);
+    }
   }, [
     assigneefilter,
     priorityfilter,
@@ -315,6 +286,22 @@ const Page = () => {
         }
       }}
     >
+      <Suspense fallback={"Loading.."}>
+
+        {/* Suspense ensure to give some time to  next.js to shift from
+                                            server to client side so UseSearchParams wont cause an issue
+                                             when it is on server side  */}
+        <UseSearchParams
+          setdate1={setdate1}
+          setdate2={setdate2}
+          setassigneefilter={setassigneefilter}
+          setpriorityfilter={setpriorityfilter}
+          getbetweentwodates={getbetweentwodates}
+          setbetweenDates={setbetweenDates}
+          setstatusfilter={setstatusfilter}
+        />
+      </Suspense>
+
       <div className="h-screen w-screen bg-amber-100 grid grid-cols-4 gap-10 place-items-center pl-10 pr-10  ">
         <div className="fixed bg-[#075de7] top-0 w-full h-[8%] z-1 flex items-center justify-center gap-5">
           <button
