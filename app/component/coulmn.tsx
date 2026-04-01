@@ -369,13 +369,12 @@ const Coulmn: React.FC<Props> = ({
           <div className="w-[90%] border absolute md:h-[85%] lg:h-[80%]   left-3 lg:top-27 md:top-15 font-bold text-gray-500">
             <div className="h-full grid grid-cols-1 place-items-center   text-gray-500">
               <Image
-                src={"myimgs/add.svg"}
+                src={"/JiraCloneVersal/myimgs/add.svg"}
                 width={300}
                 height={300}
                 alt={"Empty image"}
                 className="md:h-100 "
               />
-
               <p>No task found</p>
             </div>
           </div>
@@ -546,7 +545,7 @@ const Coulmn: React.FC<Props> = ({
           <div className="w-[90%] border absolute md:h-[85%] lg:h-[80%]   left-3 lg:top-27 md:top-15 font-bold text-gray-500">
             <div className="h-full grid grid-cols-1 place-items-center   text-gray-500">
               <Image
-                src={"myimgs/add.svg"}
+                src={"/JiraCloneVersal/myimgs/add.svg"}
                 width={300}
                 height={300}
                 alt={"Empty image"}
@@ -714,7 +713,7 @@ const Coulmn: React.FC<Props> = ({
           <div className="w-[90%] border absolute md:h-[85%] lg:h-[80%]   left-3 lg:top-27 md:top-15 font-bold text-gray-500">
             <div className="h-full grid grid-cols-1 place-items-center   text-gray-500">
               <Image
-                src={"myimgs/add.svg"}
+                src={"/JiraCloneVersal/myimgs/add.svg"}
                 width={300}
                 height={300}
                 alt={"Empty image"}
@@ -882,7 +881,7 @@ const Coulmn: React.FC<Props> = ({
           <div className="w-[90%] border absolute md:h-[85%] lg:h-[80%]   left-3 lg:top-27 md:top-15 font-bold text-gray-500">
             <div className="h-full grid grid-cols-1 place-items-center   text-gray-500">
               <Image
-                src={"myimgs/add.svg"}
+                src={"/JiraCloneVersal/myimgs/add.svg"}
                 width={300}
                 height={300}
                 alt={"Empty image"}

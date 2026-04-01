@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Activity } from "react";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import FourCoulmns from "./component/coulmn";
 import UseSearchParams from "./component/useSearchparams";
 import { Suspense } from "react";
@@ -234,8 +234,6 @@ const Page = () => {
 
   // Filtering Logic
 
-  const router = useRouter();
-
   useEffect(() => {
     function Filters() {
       setdata(() => {
@@ -258,20 +256,17 @@ const Page = () => {
       });
     }
     Filters();
+  }, [assigneefilter, priorityfilter, betweenDates, statusfilter]); // dataclone and data gets data as initial value in
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Filter params logic
 
     const updatedParams = `?a=${JSON.stringify(assigneefilter)}&p=${JSON.stringify(priorityfilter)}&b=${JSON.stringify([date1, date2])}&s=${JSON.stringify(statusfilter)}`;
 
-    if (updatedParams !== location.search) {
-      router.replace(updatedParams);
-    }
-  }, [
-    assigneefilter,
-    priorityfilter,
-    betweenDates,
-    date1,
-    date2,
-    statusfilter,
-  ]); // dataclone and data gets data as initial value in
+    router.replace(updatedParams);
+  }, [assigneefilter, priorityfilter, date1, date2, statusfilter]);
 
   return (
     <div
@@ -287,7 +282,6 @@ const Page = () => {
       }}
     >
       <Suspense fallback={"Loading.."}>
-
         {/* Suspense ensure to give some time to  next.js to shift from
                                             server to client side so UseSearchParams wont cause an issue
                                              when it is on server side  */}

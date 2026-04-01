@@ -1,12 +1,9 @@
-"use client"
-import React from 'react'
-import { useSearchParams } from 'next/navigation';
-import {useEffect} from "react"
+"use client";
+import React from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
-
-
-
-  type UseSearchParamsFn = (args: {
+type UseSearchParamsFn = (args: {
   setdate1: React.Dispatch<React.SetStateAction<string | null>>;
   setdate2: React.Dispatch<React.SetStateAction<string | null>>;
 
@@ -19,13 +16,16 @@ import {useEffect} from "react"
   getbetweentwodates: (start: Date, end: Date) => Date[];
 }) => null;
 
-
-
-const useSearchparam:UseSearchParamsFn = ({setdate1,setdate2, getbetweentwodates,setbetweenDates,setstatusfilter,setpriorityfilter, setassigneefilter}) => {
-
-
-      const searchParams = useSearchParams();
-
+const useSearchparam: UseSearchParamsFn = ({
+  setdate1,
+  setdate2,
+  getbetweentwodates,
+  setbetweenDates,
+  setstatusfilter,
+  setpriorityfilter,
+  setassigneefilter,
+}) => {
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     //sharabler filter url logic
@@ -59,10 +59,7 @@ const useSearchparam:UseSearchParamsFn = ({setdate1,setdate2, getbetweentwodates
     setter();
   }, []);
 
+  return null;
+};
 
-
-
-return null
-}
-
-export default useSearchparam
+export default useSearchparam;
