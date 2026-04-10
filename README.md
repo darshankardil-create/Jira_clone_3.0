@@ -277,3 +277,4 @@ Darshan Kardile
 # myjira
 # Jira_clone
 # JiraCloneVersal
+# Jira_clone_3.0
