@@ -372,7 +372,7 @@ console.log("b", newparams.toString());
             </div>
 
             <input
-              className="h-7 text-white  border-3 border-black rounded-md font-black md:text-[10px] lg:text-base  "
+              className="h-7 text-white  border-3 border-white rounded-md font-black md:text-[10px] lg:text-base  "
               type="date"
               value={date1 ?? ""}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -383,7 +383,7 @@ console.log("b", newparams.toString());
             <div className="text-white font-black">To</div>
 
             <input
-              className="h-7 text-white border-3 border-black rounded-md font-black md:text-[10px] lg:text-base"
+              className="h-7 text-white border-3 border-white rounded-md font-black md:text-[10px] lg:text-base"
               type="date"
               min={date1!}
               value={date2 ?? ""}
