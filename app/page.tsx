@@ -272,8 +272,16 @@ useEffect(() => {
   newparams.set("b", JSON.stringify([date1, date2]));
   newparams.set("s", JSON.stringify(statusfilter));
 
+
+
   if (params.toString() !== newparams.toString()) {
+
+
+console.log("a", params);
+console.log("b", newparams.toString());
+
     router.replace(`?${newparams.toString()}`);
+   
   }
 }, [assigneefilter, priorityfilter, date1, date2, statusfilter]);
 
@@ -364,7 +372,7 @@ useEffect(() => {
             </div>
 
             <input
-              className="h-7 text-white  border-3 rounded-md font-black md:text-[10px] lg:text-base  "
+              className="h-7 text-white  border-3 border-black rounded-md font-black md:text-[10px] lg:text-base  "
               type="date"
               value={date1 ?? ""}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -375,7 +383,7 @@ useEffect(() => {
             <div className="text-white font-black">To</div>
 
             <input
-              className="h-7 text-white border-3 rounded-md font-black md:text-[10px] lg:text-base"
+              className="h-7 text-white border-3 border-black rounded-md font-black md:text-[10px] lg:text-base"
               type="date"
               min={date1!}
               value={date2 ?? ""}
@@ -464,7 +472,7 @@ useEffect(() => {
                 {statuses.map((i, ind) => {
                   return (
                     <div
-                      className={`font-black grid grid-cols-2 gap-30 border-b w-44 ${statusfilter.includes(i) ? "bg-[#11b3c8d8] p-1" : ""} `}
+                      className={`font-black grid grid-cols-2 gap-30 border-b border-b-black w-44 ${statusfilter.includes(i) ? "bg-[#11b3c8d8] p-1" : ""} `}
                       key={ind}
                     >
                       <label
