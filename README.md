@@ -1,25 +1,23 @@
+
+# live deployment link
+# https://darshankardil-create.github.io/Jira_clone_3.0
+
+
 ````markdown
 # Kanban Board with Virtual Scrolling and Drag-and-Drop
 
 A Kanban board built with Next.js and React that efficiently handles large datasets using virtual scrolling and drag-and-drop, with URL-synced filters. The design is responsive for tablet and desktop devices only and does not support mobile.
 
----
-
-## Live Demo
-
-[Add your Vercel or Netlify live deployment link here]
-
 ## Repository
 
-[Add your public GitHub or GitLab repository link here]
-
+https://github.com/darshankardil-create/Jira_clone_3.0
 ---
 
 ## Setup Instructions
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/darshankardil-create/Jira_clone_3.0
 
 # 2. Navigate to the project folder
 cd <project-folder>
@@ -32,7 +30,7 @@ npm run dev
 ````
 
 The app will be available at:
-`http://localhost:3000`
+`http://localhost:3000/JiraCloneVersal`
 
 ---
 
@@ -269,12 +267,4 @@ If I had more time, I would refactor repeated column logic into a reusable compo
 
 Darshan Kardile
 
-```
-```
-# Jira_clone
-# Jira_clone
-# Jira_clone_1.0
-# myjira
-# Jira_clone
-# JiraCloneVersal
 # Jira_clone_3.0
